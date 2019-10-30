@@ -1,10 +1,12 @@
 # Configuration of the CI pipeline
 name: 'ansible-runner'
 canonical: 'stack-ansible-runner'
-description: 'Allow you to do ansible or ansible-playbook command.'
+description: 'Allow you to run ansible a playbook.'
 keywords:
   - 'ansible-runner'
+  - 'ansible-playbook'
   - 'ansible'
+  - 'playbook'
 technologies:
   - technology: ansible
     version: n/a
