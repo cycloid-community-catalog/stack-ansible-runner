@@ -20,7 +20,7 @@ This stack allow you to do ansible or ansible-playbook command.
 
 |Name|Description|Type|Default|Required|
 |---|---|:---:|:---:|:---:|
-|`ansible_env_vars`|Parameters of ansible-runner script. Can be found here: https://github.com/cycloidio/cycloid-images/tree/master/cycloid-toolkit#ansible-runner.|`-`|`dict`|`True`|
+|`ansible_params`|Parameters of ansible-runner script. Can be found here: https://github.com/cycloidio/cycloid-images/tree/master/cycloid-toolkit#ansible-runner.|`-`|`dict`|`True`|
 |`customer`|Name of the Cycloid Organization, used as customer variable name.|`-`|`($ organization_canonical $)`|`True`|
 |`env`|Name of the project's environment.|`-`|`($ environment $)`|`True`|
 |`git_ansible_path`|Path of ansible files in the git repositorycycloid-toolkit docker image tag to use (https://hub.docker.com/r/cycloid/cycloid-toolkit/tags).|`-`|`./`|`True`|

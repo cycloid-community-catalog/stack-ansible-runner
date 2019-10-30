@@ -44,4 +44,4 @@ jobs:
         inputs:
         - name: merged-stack
           path: ansible-playbook
-      params: ((ansible_env_vars))
+      params: ((ansible_params))
