@@ -30,14 +30,16 @@ ansible_version: 'v2.7'
 #+ Parameters of ansible-runner script. Can be found here: https://github.com/cycloidio/cycloid-images/tree/master/cycloid-toolkit#ansible-runner.
 ansible_params:
   SSH_JUMP_URL: user1@Bastion1
-  SSH_PRIVATE_KEY: ((git_bastion.ssh_key))
+  SSH_PRIVATE_KEYS:
+    - ((git_bastion.ssh_key))
   ANSIBLE_VAULT_PASSWORD: ((raw_ansible_password))
-  ANSIBLE_PLAYBOOK_PATH: ((git_ansible_path))
+  # ANSIBLE_PLAYBOOK_PATH should be "ansible-playbook/" + (git_ansible_path)
+  ANSIBLE_PLAYBOOK_PATH: ansible-playbook/
   ANSIBLE_PLAYBOOK_NAME: playbook.yml
   EXTRA_ANSIBLE_VARS:
-    customer: ((customer))
-    project: ((project))
-    env: ((env))
+    customer: ($ organization_canonical $)
+    project: ($ project $)
+    env: ($ environment $)
 # If you are using Amazon EC2 dynamic inventory
   #AWS_DEFAULT_REGION: eu-west-1
   #AWS_ACCESS_KEY_ID: ((aws.access_key))

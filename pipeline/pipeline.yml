@@ -42,6 +42,6 @@ jobs:
         caches:
           - path: ansible-playbook/roles
         inputs:
-        - name: merged-stack
+        - name: git_ansible
           path: ansible-playbook
       params: ((ansible_params))
