@@ -1,13 +1,20 @@
 ---
-default:
-  pipeline:
-    Ansible:
+version: 2
+
+use_cases:
+- name: default
+  sections:
+  - name: Global
+    groups:
+    - name: ansible
+      technologies: [pipeline]
+      vars:
       - name: "Cycloid toolkit Ansible version"
         description: "cycloid-toolkit docker image tag to use (https://hub.docker.com/r/cycloid/cycloid-toolkit/tags"
         key: ansible_version
         widget: simple_text
         type: string
-        default: "v2.7"
+        default: "v8.3"
       - name: "Ansible params"
         description: "Parameters of ansible-runner script. Can be found here: https://github.com/cycloidio/cycloid-images/tree/master/cycloid-toolkit#ansible-runner"
         key: ansible_params
@@ -25,7 +32,9 @@ default:
             customer: ($ organization_canonical $)
             project: ($ project $)
             env: ($ environment $)
-    Repos:
+    - name: Git
+      technologies: [pipeline]
+      vars:
       - name: "Code git URL"
         description: "URL to the Git repository containing terraform source code."
         key: git_repository
@@ -50,4 +59,3 @@ default:
         widget: simple_text
         type: string
         default: "./"
-
