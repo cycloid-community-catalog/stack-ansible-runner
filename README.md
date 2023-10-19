@@ -1,12 +1,12 @@
-# stack-ansible-runner
+# Ansible runner
 
-This stack allow you to do ansible or ansible-playbook command.
-
-# Architecture
+Enables you to execute an Ansible playbook. This stack includes a preconfigured pipeline for running a single Ansible playbook
 
 # Requirements
 
 # Details
+
+The Docker image **Cycloid-toolkit** contains automation scripts, including **ansible-runner.** The pipeline relies on this Docker image by supplying a configuration map. This map is utilized by the Cycloid ansible-runner script to configure Ansible and execute the playbook correctly. For additional configuration details, please visit https://github.com/cycloidio/docker-cycloid-toolkit/tree/develop#ansible-runner.
 
 ## Pipeline
 
@@ -14,17 +14,5 @@ This stack allow you to do ansible or ansible-playbook command.
 
 **Jobs description**
 
-  * `ansible`: Run a ansible playbook.
+  * `ansible`: Run a ansible playbook using Cycloid-toolkit Docker image.
 
-**Params**
-
-|Name|Description|Type|Default|Required|
-|---|---|:---:|:---:|:---:|
-|`ansible_params`|Parameters of ansible-runner script. Can be found here: https://github.com/cycloidio/cycloid-images/tree/master/cycloid-toolkit#ansible-runner.|`-`|`dict`|`True`|
-|`customer`|Name of the Cycloid Organization, used as customer variable name.|`-`|`($ organization_canonical $)`|`True`|
-|`env`|Name of the project's environment.|`-`|`($ environment $)`|`True`|
-|`git_ansible_path`|Path of ansible files in the git repositorycycloid-toolkit docker image tag to use (https://hub.docker.com/r/cycloid/cycloid-toolkit/tags).|`-`|`./`|`True`|
-|`git_branch`|Branch of the ansible source code Git repository.|`-`|`master`|`True`|
-|`git_private_key`|SSH key pair to fetch ansible source code Git repository.|`-`|`((ssh_config.ssh_key))`|`True`|
-|`git_repository`|URL to the Git repository containing ansible source code.|`-`|`git@github.com:MyUser/ansible-code.git`|`True`|
-|`project`|Name of the project.|`-`|`($ project $)`|`True`|

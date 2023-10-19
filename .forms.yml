@@ -10,13 +10,13 @@ use_cases:
       technologies: [pipeline]
       vars:
       - name: "Cycloid toolkit Ansible version"
-        description: "cycloid-toolkit docker image tag to use (https://hub.docker.com/r/cycloid/cycloid-toolkit/tags"
+        description: "cycloid-toolkit docker [image tag](https://hub.docker.com/r/cycloid/cycloid-toolkit/tags) to use"
         key: ansible_version
         widget: simple_text
         type: string
         default: "v8.3"
       - name: "Ansible params"
-        description: "Parameters of ansible-runner script. Can be found here: https://github.com/cycloidio/cycloid-images/tree/master/cycloid-toolkit#ansible-runner"
+        description: "Parameters of ansible-runner script. See the [documentation](https://github.com/cycloidio/docker-cycloid-toolkit/tree/develop#ansible-runner) for more details on how to configure it. ANSIBLE_PLAYBOOK_PATH should be ansible-playbook/ + (git_ansible_path). Also read more about Ansible inventory configuration [here](https://docs.cycloid.io/manage/pipeline/ansible-integration.html)"
         key: ansible_params
         widget: text_area
         type: map
@@ -24,36 +24,37 @@ use_cases:
           SSH_JUMP_URL: user1@Bastion1
           SSH_PRIVATE_KEYS:
             - ((ssh_bastion.ssh_key))
-          ANSIBLE_VAULT_PASSWORD: ((raw_ansible_password))
           # ANSIBLE_PLAYBOOK_PATH should be "ansible-playbook/" + (git_ansible_path)
           ANSIBLE_PLAYBOOK_PATH: ansible-playbook/
           ANSIBLE_PLAYBOOK_NAME: playbook.yml
           EXTRA_ANSIBLE_VARS:
-            customer: ($ organization_canonical $)
+            organization: ($ organization_canonical $)
             project: ($ project $)
             env: ($ environment $)
     - name: Git
       technologies: [pipeline]
       vars:
       - name: "Code git URL"
-        description: "URL to the Git repository containing terraform source code."
+        description: "URL to the Git repository containing Ansible source code."
         key: git_repository
         widget: simple_text
         type: string
         default: "git@github.com:MyUser/code.git"
       - name: "Code git branch"
-        description: "Branch of the terraform source code Git repository."
+        description: "Branch of the Ansible source code"
         key: git_branch
         widget: simple_text
         type: string
         default: "master"
       - name: "Code git key"
-        description: "SSH key pair to fetch terraform source code Git repository."
+        description: "SSH key pair to fetch the Git repository."
         key: git_private_key
         type: string
         widget: cy_cred
+        widget_config:
+          cred_types: [ssh]
         default: "((ssh_config.ssh_key))"
-      - name: "Code Ansible path"
+      - name: "Ansible path"
         description: "Path of Ansible files in the git repository."
         key: git_ansible_path
         widget: simple_text

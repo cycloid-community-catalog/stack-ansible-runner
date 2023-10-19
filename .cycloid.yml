@@ -5,7 +5,7 @@ name: 'ansible-runner'
 canonical: 'stack-ansible-runner'
 status: 'public'
 description: |
-  Allow you to run an Ansible playbook.
+  Enables you to execute an Ansible playbook. This stack includes a preconfigured pipeline for running a single Ansible playbook
 keywords:
   - 'ansible-runner'
   - 'ansible-playbook'
