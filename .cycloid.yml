@@ -1,9 +1,8 @@
 ---
-version: '2'
 # Configuration of the Cycloid stack
+version: '4'
 name: 'ansible-runner'
 canonical: 'stack-ansible-runner'
-status: 'public'
 description: |
   Enables you to execute an Ansible playbook. This stack includes a preconfigured pipeline for running a single Ansible playbook
 keywords:
@@ -21,11 +20,11 @@ technologies:
 config:
   default:
     name: 'Default'
-    description: 'Default pipeline usecase'
+    description: 'Ansible runner'
     # Configuration of the CI pipeline
     pipeline:
       pipeline:
         path: 'pipeline/pipeline.yml'
       variables:
         path: 'pipeline/variables.sample.yml'
-        destination: '($ project $)/pipeline/variables-($ environment $).yml'
+        destination: '($ .config_root $)/pipeline/variables.yml'
