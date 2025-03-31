@@ -1,15 +1,1 @@
-#
-# Default variables that shouldn't be changed except if needed
-#
-
-#. env (required): ($ environment $)
-#+ Name of the project's environment.
-env: ($ environment $)
-
-#. project (required): ($ project $)
-#+ Name of the project.
-project: ($ project $)
-
-#. customer (required): ($ organization_canonical $)
-#+ Name of the Cycloid Organization, used as customer variable name.
-customer: ($ organization_canonical $)
+# Expose variables to the pipeline.

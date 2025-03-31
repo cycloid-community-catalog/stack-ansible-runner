@@ -1,6 +1,4 @@
 ---
-version: 2
-
 use_cases:
 - name: default
   sections:
@@ -14,7 +12,7 @@ use_cases:
         key: ansible_version
         widget: simple_text
         type: string
-        default: "v8.3"
+        default: "v10.1"
       - name: "Ansible params"
         description: "Parameters of ansible-runner script. See the [documentation](https://github.com/cycloidio/docker-cycloid-toolkit/tree/develop#ansible-runner) for more details on how to configure it. ANSIBLE_PLAYBOOK_PATH should be ansible-playbook/ + (git_ansible_path). Also read more about Ansible inventory configuration [here](https://docs.cycloid.io/manage/pipeline/ansible-integration.html)"
         key: ansible_params
@@ -28,9 +26,10 @@ use_cases:
           ANSIBLE_PLAYBOOK_PATH: ansible-playbook/
           ANSIBLE_PLAYBOOK_NAME: playbook.yml
           EXTRA_ANSIBLE_VARS:
-            organization: ($ organization_canonical $)
-            project: ($ project $)
-            env: ($ environment $)
+            organization: ($ .organization_canonical $)
+            project: ($ .project $)
+            env: ($ .environment $)
+            component: ($ .component $)
     - name: Git
       technologies: [pipeline]
       vars:
