@@ -1,7 +1,7 @@
 ---
 # Configuration of the Cycloid stack
 version: '4'
-name: 'ansible-runner'
+name: 'Ansible runner'
 canonical: 'stack-ansible-runner'
 description: |
   Enables you to execute an Ansible playbook. This stack includes a preconfigured pipeline for running a single Ansible playbook
